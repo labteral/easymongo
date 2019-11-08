@@ -1,0 +1,2 @@
+twine
+pymongo==3.9.0
