@@ -7,12 +7,24 @@ import time
 
 
 class MongodbConnector:
-    def __init__(self, host, port, default_database=None, default_collection=None, connect=False):
-        self._config = {'host': host, 'port': port}
+    def __init__(self,
+                 host=None,
+                 port=None,
+                 default_database=None,
+                 default_collection=None,
+                 connect=False,
+                 endpoint=None):
+
+        if endpoint is not None:
+            host, port = endpoint.split(':')
+        self._config = {'host': host, 'port': int(port)}
+
         if default_database != None:
             self._default_database = default_database
+
         if default_collection != None:
             self._default_collection = default_collection
+
         self._client = None
         if connect:
             self.open_connection()
