@@ -3,4 +3,4 @@
 
 from .easymongo import *
 
-__version__ = '0.0.4b0'
+__version__ = '1.215.0'

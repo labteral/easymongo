@@ -24,4 +24,4 @@ setup(
         "Programming Language :: Python :: Implementation :: PyPy",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    install_requires=['pymongo>=3.9.0'])
+    install_requires=['pymongo>=3.9.0,<4.0.0', 'dnspython>=2.1.0, <3.0.0'])
