@@ -1,6 +1,6 @@
 version: '3.4'
 services:
   aerospike:
-    image: mongo:4.2
+    image: mongodb/mongodb-community-server:9.0.2-ubi10-slim@sha256:ec34c10ccf337bd29a574db136859ed68cfda47f970adaceae1913236252143d
     ports:
       - 27017:27017

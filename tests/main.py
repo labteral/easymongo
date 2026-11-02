@@ -50,14 +50,21 @@ class MongoTest:
         self.mongodb.put(self.item, self.attributes)
         assert (self.mongodb.exists(self.item))
 
-        result = self.mongodb.get(self.item, limit=100, index_attribute='attr1', index_type='desc')
+        result = self.mongodb.get(
+            self.item,
+            limit=100,
+            index_attribute='attr1',
+            index_type='desc')
         result = next(result)
         result.pop('_id')
         expected_result = dict(self.item)
         expected_result.update(self.attributes)
         assert (result == expected_result)
 
-        result = self.mongodb.get(self.item, index_attribute='attr1', index_type='asc')
+        result = self.mongodb.get(
+            self.item,
+            index_attribute='attr1',
+            index_type='asc')
         result = next(result)
         result.pop('_id')
         expected_result = dict(self.item)
@@ -66,7 +73,12 @@ class MongoTest:
 
     def get_random_item(self):
         assert (next(self.mongodb.get_random()))
-        assert (next(self.mongodb.get_random(query={'attr1': 'value1'}, sort={'attr1': -1})))
+        assert (
+            next(
+                self.mongodb.get_random(
+                    query={
+                        'attr1': 'value1'}, sort={
+                        'attr1': -1})))
         assert (next(self.mongodb.get_random(sort={'attr2': -1})))
 
     def check_array(self):
